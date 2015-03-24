@@ -1,5 +1,5 @@
 var users = require('./users.db.json');
-var possibleParams = ['id', 'name', 'role', 'name'];
+var possibleParams = ['id', 'name', 'role', 'name', 'created_at'];
 
 function findByKey(collection, key, value) {
 	return collection.filter(function(item) {
