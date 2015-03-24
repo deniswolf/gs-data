@@ -3,4 +3,14 @@
 	"name": "First User",
 	"role": "admin",
 	"created_at": "2015/03/24"
+}, {
+	"id": "321",
+	"name": "Second User",
+	"role": "user",
+	"created_at": "2015/04/01"
+}, {
+	"id": "555",
+	"name": "Third User",
+	"role": "user",
+	"created_at": "2015/04/01"
 }]
