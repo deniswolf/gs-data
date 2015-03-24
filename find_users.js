@@ -1,4 +1,5 @@
 var queryUsers = require('./db');
+var reporter = require('./reporter');
 var possibleParams = ['id', 'name', 'role', 'name', 'created_at'];
 
 function validateParamsNames(params) {
@@ -16,11 +17,23 @@ module.exports = function(req, res) {
 	var namesValidation = validateParamsNames(params);
 
 	if (namesValidation !== true) {
+		var error = new Error(namesValidation);
+		reporter(error);
 		res.status(400).json({
 			error: namesValidation
 		});
 	} else {
-		var result = queryUsers(params);
-		res.json(result);
+		queryUsers(params)
+			.then(function(result) {
+				res.json(result);
+				return result;
+			})
+			.catch(function(err) {
+				reporter(err);
+				res.status(500).json({
+					error: err.message
+				});
+			});
+
 	}
 };
