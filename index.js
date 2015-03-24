@@ -1,10 +1,10 @@
 var express = require('express');
 var app = express();
 
-var data = require('./find_users');
+var find_users = require('./find_users');
 
 app
-  .get('/', data);
+  .get('/', find_users);
 
 var server = app.listen(process.env.PORT, function() {
 
