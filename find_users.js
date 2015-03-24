@@ -11,6 +11,7 @@ function validateParamsNames(params) {
 }
 
 module.exports = function(req, res) {
+	console.log('Incomming!');
 	var params = req.query;
 	var namesValidation = validateParamsNames(params);
 
